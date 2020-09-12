@@ -9,6 +9,7 @@ class SendMail(View):
     def get(self, request):
         return render(request, 'email.html')
     def post(self, request):
+        print('Success')
         #Get data/json in post
         #Parse the data 
         #content = {"name": name,}
