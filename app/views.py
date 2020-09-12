@@ -10,11 +10,11 @@ import json
 @csrf_exempt
 def SendMail(request):
     resp = json.loads(request.body)
-    print(resp)
-    #Get data/json in post
-    #Parse the data 
-    #content = {"name": name,}
-    #html_message = loader.render_to_string("email/confirmation.html", content)
-    #send_mail("Thank You for Registering with us!","We'd love to invite you to our Orientation. Date and Time are below-mentioned. It's a great opportunity to meet your instructor and mentor. Register for the orientation session.",settings.EMAIL_HOST_USER,[str(to)],html_message=html_message,fail_silently=True,)
-    return render(request, 'email.html')
+    print(resp["payload"]["payment"]["entity"]["email"])
+    # Get data/json in post
+    # Parse the data
+    # content = {"name": name,}
+    # html_message = loader.render_to_string("email/confirmation.html", content)
+    # send_mail("Thank You for Registering with us!","We'd love to invite you to our Orientation. Date and Time are below-mentioned. It's a great opportunity to meet your instructor and mentor. Register for the orientation session.",settings.EMAIL_HOST_USER,[str(to)],html_message=html_message,fail_silently=True,)
+    return render(request, "email.html")
 
