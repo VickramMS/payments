@@ -10,7 +10,7 @@ import json
 @csrf_exempt
 def SendMail(request):
     resp = json.loads(request.body)
-    resp.get('payload').get('payment').get('notes').get('email')
+    print(resp)
     #Get data/json in post
     #Parse the data 
     #content = {"name": name,}
