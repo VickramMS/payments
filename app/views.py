@@ -10,10 +10,12 @@ import json
 @csrf_exempt
 def SendMail(request):
     resp = json.loads(request.body)
-    if resp["payload"]["payment"]["entity"]["email"] == "authorized":
+    if resp["payload"]["payment"]["entity"]["status"] == "authorized":
         print(resp["payload"]["payment"]["entity"]["email"])
     else:
         print("Payment failed!")
+
+    
     # Get data/json in post
     # Parse the data
     # content = {"name": name,}
