@@ -4,10 +4,13 @@ from django.core.mail import send_mail
 from django.template import loader
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
+import json
+
 
 @csrf_exempt
 def SendMail(request):
-    print(request.body)
+    resp = json.loads(request.body)
+    resp.get('payload').get('payment').get('notes').get('email')
     #Get data/json in post
     #Parse the data 
     #content = {"name": name,}
