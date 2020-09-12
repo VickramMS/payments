@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 @csrf_exempt
 def SendMail(request):
-    print(request.POST)
+    print(request.body)
     #Get data/json in post
     #Parse the data 
     #content = {"name": name,}
