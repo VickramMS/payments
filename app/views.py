@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from django.views.generic import View
 from django.core.mail import send_mail
 from django.template import loader
 from django.conf import settings
@@ -14,7 +13,7 @@ def SendMail(request):
         print(resp["payload"]["payment"]["entity"]["email"])
     else:
         print("Payment failed!")
-
+    
     
     # Get data/json in post
     # Parse the data
