@@ -1,0 +1,1 @@
+web: gunicorn emailauto.wsgi --log-file -
