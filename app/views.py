@@ -9,10 +9,10 @@ import json
 @csrf_exempt
 def SendMail(request):
     resp = json.loads(request.body)
-    print(resp)
     if resp["payload"]["payment"]["entity"]["notes"]["course_code"] == "FF66YEH":
         content = {"name": resp["payload"]["payment"]["entity"]["notes"]["name"]}
         to = resp["payload"]["payment"]["entity"]["notes"]["email"]
+        print(to)
         html_message = loader.render_to_string("confirmation.html", content)
         send_mail(
             "Thank You for Registering with us!",
