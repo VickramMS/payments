@@ -9,19 +9,20 @@ import json
 @csrf_exempt
 def SendMail(request):
     resp = json.loads(request.body)
-    print(resp)
     if resp["payload"]["payment"]["entity"]["status"] == "authorized":
         content = {"name": resp["payload"]["payment"]["entity"]["notes"]["name"]}
         to = resp["payload"]["payment"]["entity"]["notes"]["email"]
+        print(to)
         html_message = loader.render_to_string("confirmation.html", content)
-        #send_mail(
-            #"Thank You for Registering with us!",
-            #"We'd love to invite you to our Orientation. Date and Time are below-mentioned. It's a great opportunity to meet your instructor and mentor. Register for the orientation session.",
-            #settings.EMAIL_HOST_USER,
-            #[str(to)],
-            #html_message=html_message,
-            #fail_silently=True,
-        #)
+        print(html_message)
+        # send_mail(
+        # "Thank You for Registering with us!",
+        # "We'd love to invite you to our Orientation. Date and Time are below-mentioned. It's a great opportunity to meet your instructor and mentor. Register for the orientation session.",
+        # settings.EMAIL_HOST_USER,
+        # [str(to)],
+        # html_message=html_message,
+        # fail_silently=True,
+        # )
     else:
         print("Payment failed!")
     return render(request, "email.html")
