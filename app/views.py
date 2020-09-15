@@ -17,9 +17,7 @@ def SendMail(request):
             'Thank You for registering with us!',            
             "We'd love to invite you to our Orientation. Date and Time are below-mentioned. It's a great opportunity to meet your instructor and mentor. Register for the orientation session.",
             settings.EMAIL_HOST_USER,
-            [str(to)],
-            html_message=html_message,
-            fail_silently=False,            
+            [str(to)],          
         )
         message.attach_alternative(html_message, 'text/html')
         message.send()
