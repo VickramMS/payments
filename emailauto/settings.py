@@ -105,7 +105,7 @@ EMAIL_HOST = 'smtp-relay.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'connect@skillsafari.in'
-EMAIL_HOST_PASSWORD = 'Edukeys@789'
+EMAIL_HOST_PASSWORD = 'SkillSafari@789'
 
 
 # Internationalization
