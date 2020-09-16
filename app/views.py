@@ -32,6 +32,7 @@ def send_mail(request):
     record.email = request.POST.get("_replyto")
     record.number = request.POST.get("number")
     record.whatsapp = request.POST.get("whatsapp")
+    record.save()
     plain_message = loader.render_to_string("text.html", {"name": record.name})
     html_message = loader.render_to_string("free_course.html", {"name": record.name})
     message = EmailMultiAlternatives(
@@ -42,7 +43,6 @@ def send_mail(request):
     )
     message.attach_alternative(html_message, 'text/html')
     message.send()
-    record.save()
 
 def view(request):
     context = {
