@@ -27,22 +27,24 @@ def SendMail(request):
 
 @csrf_exempt
 def send_mail(request):
-    record = Record()
-    record.name = request.POST.get("name")
-    record.email = request.POST.get("_replyto")
-    record.number = request.POST.get("number")
-    record.whatsapp = request.POST.get("whatsapp")
-    record.save()
-    plain_message = loader.render_to_string("text.html", {"name": record.name})
-    html_message = loader.render_to_string("free_course.html", {"name": record.name})
-    message = EmailMultiAlternatives(
-        "Welcome - SkillSafari",
-        plain_message,
-        settings.EMAIL_HOST_USER,
-        [str(record.email)],
-    )
-    message.attach_alternative(html_message, 'text/html')
-    message.send()
+    if request.method == "POST":
+        record = Record()
+        record.name = request.POST.get("name")
+        record.email = request.POST.get("_replyto")
+        record.number = request.POST.get("number")
+        record.whatsapp = request.POST.get("whatsapp")
+        record.save()
+        plain_message = loader.render_to_string("text.html", {"name": record.name})
+        html_message = loader.render_to_string("free_course.html", {"name": record.name})
+        message = EmailMultiAlternatives(
+            "Welcome - SkillSafari",
+            plain_message,
+            settings.EMAIL_HOST_USER,
+            [str(record.email)],
+        )
+        message.attach_alternative(html_message, 'text/html')
+        message.send()
+    return render(request, "email.html")
 
 def view(request):
     context = {
