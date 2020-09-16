@@ -19,5 +19,7 @@ from app.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', SendMail, name='home')
+    path('', SendMail, name='home').
+    path('/freecourse', send_mail, name='freecourse'),
+    path('/freecourse/view', view, name='view')
 ]
