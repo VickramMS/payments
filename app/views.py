@@ -44,6 +44,7 @@ def send_mail(request):
         )
         message.attach_alternative(html_message, 'text/html')
         message.send()
+        return redirect('thankyou')
     return render(request, "email.html")
 
 def view(request):
@@ -51,3 +52,6 @@ def view(request):
         "records": Record.objects.all()
     }
     return render(request, 'index.html', context)
+
+def thankyou(request):
+    return render(request, 'thankyou.html')
