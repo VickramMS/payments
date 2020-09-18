@@ -36,14 +36,17 @@ def send_mail(request):
         record.save()
         plain_message = loader.render_to_string("text.html", {"name": record.name})
         html_message = loader.render_to_string("free_course.html", {"name": record.name})
-        message = EmailMultiAlternatives(
-            "Welcome - SkillSafari",
-            plain_message,
-            settings.EMAIL_HOST_USER,
-            [str(record.email)],
-        )
-        message.attach_alternative(html_message, 'text/html')
-        message.send()
+        try:
+            message = EmailMultiAlternatives(
+                "Welcome - SkillSafari",
+                plain_message,
+                settings.EMAIL_HOST_USER,
+                [str(record.email)],
+            )
+            message.attach_alternative(html_message, 'text/html')
+            message.send()
+        except:
+            pass
         return redirect('thankyou')
     return render(request, "email.html")
 
