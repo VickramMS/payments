@@ -6,9 +6,9 @@
     <title>Records</title>
 </head>
 <body>
-    Name, Email, Phone, WhatsApp <br>
+    Name, Email, Phone, WhatsApp, Date/Time <br>
     {% for record in records  %}
-      {{record.name}}, {{record.email}}, {{record.number}}, {{record.whatsapp}}
+      {{record.name}}, {{record.email}}, {{record.number}}, {{record.whatsapp}}, {{record.time}}
       <br>
     {% endfor %}    
 </body>

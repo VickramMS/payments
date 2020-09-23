@@ -28,7 +28,7 @@ if os.path.isfile(dotenv_file):
 SECRET_KEY = 'cjnhms_5onwyi6(_=zf!mt@iu%m1_-424qnl*wrozvm=*#qiu4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['pymntsf.herokuapp.com']
 
@@ -114,7 +114,7 @@ EMAIL_HOST_PASSWORD = 'SkillSafari@789'
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
