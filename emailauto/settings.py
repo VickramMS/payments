@@ -28,7 +28,7 @@ if os.path.isfile(dotenv_file):
 SECRET_KEY = 'cjnhms_5onwyi6(_=zf!mt@iu%m1_-424qnl*wrozvm=*#qiu4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['pymntsf.herokuapp.com']
 
